@@ -21,7 +21,7 @@ const Form = ({ peopleArr, setPeopleArr }) => {
   )
 
   const patterValidNumber = (nameLine) => {
-    if (peopleArr.some(item => item.phone === phone)) {
+    if (!peopleArr.every(item => item.phone !== phone)) {
       return <span className="form__error">Such a phone already exists</span>
     }
     return errors[nameLine] && errors[nameLine].type === 'pattern'
